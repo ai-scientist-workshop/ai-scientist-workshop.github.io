@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Scientist Summer Workshop · August 4, 2026 · Cambridge, MA</title>
+  <meta name="description" content="A one-day workshop on AI systems as scientific collaborators. Microsoft New England, August 4, 2026." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ---------- tokens ---------- */
+    :root {
+      --bg:        #ffffff;
+      --bg-alt:    #faf9f8;
+      --bg-deep:   #f3f2f1;
+      --ink:       #201f1e;
+      --ink-soft:  #323130;
+      --ink-mute:  #605e5c;
+      --rust:      #0078d4;
+      --rust-deep: #106ebe;
+      --line:      #edebe9;
+      --line-soft: #f3f2f1;
+      --ms-red:    #f25022;
+      --ms-green:  #7fba00;
+      --ms-blue:   #00a4ef;
+      --ms-yellow: #ffb900;
+      --ms-teal:   #038387;
+      --ms-navy:   #243a5a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html {
+      scroll-behavior: smooth;
+      font-size: clamp(16px, 0.4vw + 14.5px, 19px);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'IBM Plex Sans', system-ui, sans-serif;
+      font-size: 1rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-feature-settings: "ss01", "cv11";
+    }
+
+    /* ---------- typography ---------- */
+    h1, h2, h3, h4 {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 500;
+      letter-spacing: -0.018em;
+      line-height: 1.15;
+      color: var(--ink);
+    }
+    h2 { font-size: 1.5rem; font-weight: 500; }
+    h3 { font-size: 1.1rem; font-weight: 500; }
+
+    .mono {
+      font-family: 'IBM Plex Mono', ui-monospace, monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      font-weight: 500;
+    }
+
+    a {
+      color: var(--rust);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s ease, color 0.15s ease;
+    }
+    a:hover { color: var(--rust-deep); border-bottom-color: currentColor; }
+
+    /* ---------- top bar ---------- */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .topbar-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0.7rem 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      border: none;
+    }
+    .brand .dot { color: var(--rust); margin: 0 0.3rem; }
+    .ms-mark {
+      display: inline-grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 1.5px;
+      width: 13px;
+      height: 13px;
+      flex-shrink: 0;
+    }
+    .ms-mark span:nth-child(1) { background: var(--ms-red); }
+    .ms-mark span:nth-child(2) { background: var(--ms-green); }
+    .ms-mark span:nth-child(3) { background: var(--ms-blue); }
+    .ms-mark span:nth-child(4) { background: var(--ms-yellow); }
+    nav.menu {
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav.menu a {
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: var(--ink-soft);
+      border: none;
+    }
+    nav.menu a:hover { color: var(--rust); border: none; }
+    .register-btn {
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 0.5rem 0.95rem;
+      background: var(--rust);
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      letter-spacing: 0.005em;
+      transition: background 0.15s ease;
+    }
+    .register-btn:hover { background: var(--rust-deep); }
+
+    /* ---------- container ---------- */
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 1.75rem;
+    }
+    section { padding: clamp(2rem, 4vw, 3rem) 0; }
+    section.tight { padding: clamp(1.25rem, 2vw, 2rem) 0; }
+
+    /* ---------- hero ---------- */
+    .hero {
+      padding: clamp(2rem, 5vw, 3.5rem) 1.75rem clamp(1.75rem, 3vw, 2.5rem);
+    }
+    .hero-meta {
+      display: flex;
+      gap: 0.85rem;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .hero-meta .sep {
+      width: 4px; height: 4px;
+      background: var(--ink-mute);
+      border-radius: 50%;
+      opacity: 0.5;
+    }
+    .hero-meta .tag.accent { color: var(--rust); }
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 500;
+      letter-spacing: -0.028em;
+      line-height: 1.04;
+      margin-bottom: 1.25rem;
+    }
+    .hero-sub {
+      max-width: 58ch;
+      font-size: 1.02rem;
+      color: var(--ink-soft);
+      line-height: 1.55;
+    }
+
+    .hero-strip {
+      margin-top: 2.25rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.25rem 1.5rem;
+    }
+    .strip-item .mono { display: block; margin-bottom: 0.35rem; }
+    .strip-item .val {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.35;
+    }
+    .strip-item .small {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--ink-mute);
+      font-weight: 400;
+      margin-top: 0.15rem;
+    }
+
+    /* ---------- section heads ---------- */
+    .sec-head {
+      display: block;
+      margin-bottom: 1.5rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--line);
+    }
+    .sec-head .mono {
+      display: block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: 0.015em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .sec-head h2 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    /* ---------- abstract ---------- */
+    .abstract-body {
+      font-size: 1.08rem;
+      line-height: 1.65;
+      max-width: 78ch;
+      color: var(--ink-soft);
+    }
+    .abstract-body p { margin-bottom: 1em; }
+    .abstract-body p:last-child { margin-bottom: 0; }
+    .abstract-body strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* ---------- schedule ---------- */
+    .schedule {
+      border-top: 1px solid var(--line);
+    }
+    .sched-row {
+      display: grid;
+      grid-template-columns: 110px 1fr 200px;
+      gap: 1.25rem;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--line-soft);
+      align-items: baseline;
+      transition: background 0.12s ease;
+    }
+    .sched-row:hover { background: var(--bg-alt); padding-left: 0.5rem; padding-right: 0.5rem; margin: 0 -0.5rem; }
+    .sched-time {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: 0.01em;
+    }
+    .sched-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+    .sched-title .tag {
+      display: inline-block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
+      margin-right: 0.5rem;
+      vertical-align: 1px;
+    }
+    .sched-title .tag.invited { background: var(--rust); color: #ffffff; }
+    .sched-title .tag.spotlight { background: var(--ms-teal); color: #ffffff; }
+    .sched-title .tag.session { background: var(--bg-deep); color: var(--ink-soft); }
+    .sched-title .tag.meal { background: #f5ecdc; color: #6b4d1c; }
+    .sched-title .tag.break { background: #e8edf3; color: #2d4163; }
+    .sched-title .tag.social { background: #e7eee5; color: #2d4f1c; }
+    .sched-meta {
+      font-size: 0.85rem;
+      color: var(--ink-mute);
+    }
+    .sched-row.break {
+      /* breaks are no longer faded; differentiated only by their tag color */
+    }
+
+    /* ---------- people grids ---------- */
+    .people-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1.5rem 1.5rem;
+    }
+    .person { display: flex; flex-direction: column; gap: 0.25rem; }
+    .person-photo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: var(--bg-deep);
+      border-radius: 3px;
+      margin-bottom: 0.55rem;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    .person-photo::after {
+      content: attr(data-initials);
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--ink-mute);
+      letter-spacing: 0.05em;
+    }
+    .person-photo.confirmed::before {
+      content: "Confirmed";
+      position: absolute;
+      top: 0.4rem;
+      right: 0.4rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--rust);
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      z-index: 2;
+    }
+    .person-name {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.005em;
+    }
+    .person-affil {
+      font-size: 0.8rem;
+      color: var(--ink-mute);
+      line-height: 1.4;
+    }
+    .person-affil .role {
+      display: block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 0.15rem;
+    }
+
+    .subgroup {
+      margin: 2rem 0 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line-soft);
+    }
+
+    /* ---------- CFP / dark card ---------- */
+    .cfp {
+      background: var(--ms-navy);
+      color: var(--bg);
+      margin-top: 2.5rem;
+      border-radius: 4px;
+      padding: clamp(1.5rem, 3vw, 2.25rem);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: clamp(1.5rem, 3vw, 2.5rem);
+      align-items: start;
+    }
+    .cfp h3 {
+      color: var(--bg);
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.85rem;
+    }
+    .cfp .mono { color: rgba(255, 255, 255, 0.55); }
+    .cfp p {
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.92rem;
+      line-height: 1.55;
+      margin-bottom: 0.85rem;
+    }
+    .cfp-dates {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem 1.25rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+      padding-top: 1.25rem;
+      margin-top: 1.25rem;
+    }
+    .cfp-dates .item .mono { display: block; margin-bottom: 0.2rem; }
+    .cfp-dates .item .val {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--bg);
+    }
+    .cfp-cta {
+      display: inline-block;
+      margin-top: 1.25rem;
+      padding: 0.65rem 1.1rem;
+      background: var(--rust);
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .cfp-cta:hover {
+      background: #ffffff;
+      color: var(--ms-navy);
+      border: none;
+    }
+
+    /* ---------- venue ---------- */
+    .venue-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: clamp(1.5rem, 2.5vw, 2rem);
+    }
+    .venue-card {
+      background: var(--bg-alt);
+      padding: 1.5rem;
+      border-radius: 4px;
+      border: 1px solid var(--line);
+    }
+    .venue-card .mono { display: block; margin-bottom: 0.5rem; }
+    .venue-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+    }
+    .venue-card address {
+      font-style: normal;
+      color: var(--ink-soft);
+      font-size: 0.9rem;
+      line-height: 1.55;
+      margin-bottom: 1rem;
+    }
+    .venue-detail {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border-top: 1px solid var(--line);
+      font-size: 0.85rem;
+      gap: 1rem;
+    }
+    .venue-detail .k {
+      color: var(--ink-mute);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      flex-shrink: 0;
+    }
+    .venue-detail .v {
+      color: var(--ink);
+      text-align: right;
+    }
+    .venue-map {
+      background: var(--bg-deep);
+      border-radius: 4px;
+      min-height: 280px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    .venue-map iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+      border: 0;
+      filter: saturate(0.9);
+    }
+
+    /* ---------- sponsors ---------- */
+    .sponsors-row {
+      display: flex;
+      gap: 2.5rem;
+      align-items: flex-end;
+      flex-wrap: wrap;
+    }
+    .sponsor .label {
+      display: block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--ink-mute);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+    .sponsor .name {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+
+    /* ---------- footer ---------- */
+    footer {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--line);
+      padding: 1.25rem 1.75rem;
+      margin-top: 2.5rem;
+    }
+    .footer-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .footer-brand {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: -0.005em;
+    }
+    .footer-brand .meta {
+      color: var(--ink-mute);
+      font-weight: 400;
+      margin-left: 0.5rem;
+    }
+    .footer-links {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      border: none;
+      color: var(--ink-soft);
+      font-size: 0.82rem;
+    }
+    .footer-links a:hover { color: var(--rust); border: none; }
+    .footer-copy {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--ink-mute);
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+
+    /* ---------- entrance ---------- */
+    .hero h1, .hero-sub, .hero-meta, .hero-strip {
+      opacity: 0;
+      transform: translateY(8px);
+      animation: rise 0.6s ease-out forwards;
+    }
+    .hero-meta { animation-delay: 0.05s; }
+    .hero h1 { animation-delay: 0.15s; }
+    .hero-sub { animation-delay: 0.25s; }
+    .hero-strip { animation-delay: 0.35s; }
+    @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+
+    /* ---------- responsive ---------- */
+    @media (max-width: 880px) {
+      .topbar-inner { padding: 0.7rem 1rem; }
+      nav.menu { display: none; }
+      .hero { padding: 2.5rem 1rem 2rem; }
+      .hero-strip { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .container { padding: 0 1rem; }
+      .sec-head { grid-template-columns: 1fr; gap: 0.5rem; margin-bottom: 1.25rem; }
+      .sched-row { grid-template-columns: 80px 1fr; gap: 0.75rem; padding: 0.6rem 0; }
+      .sched-row .sched-meta { grid-column: 2; }
+      .sched-row:hover { padding: 0.6rem 0; margin: 0; background: transparent; }
+      .cfp { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.5rem; }
+      .venue-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      footer { padding: 1rem; }
+      .footer-inner { gap: 0.75rem 1.25rem; }
+      .footer-links { gap: 0.85rem; }
+      .footer-links a { font-size: 0.78rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== TOP BAR ========== -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#top"><span class="ms-mark"><span></span><span></span><span></span><span></span></span>AI Scientist Summer Workshop<span class="dot">·</span>2026</a>
+      <nav class="menu">
+        <a href="#about">About</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#speakers">Speakers</a>
+        <a href="#cfp">Call for Papers</a>
+        <a href="#organizers">Organizers</a>
+        <a href="#venue">Venue</a>
+      </nav>
+      <a class="register-btn" href="#register">Register</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ========== HERO ========== -->
+    <div class="hero">
+      <div style="max-width: 1240px; margin: 0 auto;">
+        <div class="hero-meta">
+          <span class="mono">One-day workshop</span>
+          <span class="sep"></span>
+          <span class="mono">Cambridge, MA</span>
+          <span class="sep"></span>
+          <span class="mono">August 4, 2026</span>
+          <span class="sep"></span>
+          <span class="mono tag accent">Associated event · AI for Science</span>
+        </div>
+
+        <h1>AI Scientist Summer Workshop</h1>
+
+        <p class="hero-sub">
+          A one-day gathering of researchers across AI and science to discuss
+          the emerging vision of AI systems as scientific collaborators — and
+          the central challenges of reliability, verification, reproducibility,
+          and closed-loop discovery.
+        </p>
+
+        <div class="hero-strip">
+          <div class="strip-item">
+            <span class="mono">Date</span>
+            <span class="val">Tue · Aug 4, 2026<span class="small">8:00 AM – 8:00 PM</span></span>
+          </div>
+          <div class="strip-item">
+            <span class="mono">Venue</span>
+            <span class="val">Microsoft New England<span class="small">Horace Mann Room</span></span>
+          </div>
+          <div class="strip-item">
+            <span class="mono">Address</span>
+            <span class="val">1 Memorial Drive<span class="small">Cambridge, MA 02142</span></span>
+          </div>
+          <div class="strip-item">
+            <span class="mono">Capacity</span>
+            <span class="val">100 attendees<span class="small">In-person only</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== ABOUT ========== -->
+    <section id="about">
+      <div class="container">
+        <div class="sec-head">
+          <div><span class="mono">About</span></div>
+        </div>
+        <div class="abstract-body">
+          <p>
+            Recent advances in LLMs, foundation models, and AI agents have
+            rapidly expanded the role of AI in science. These systems are now
+            being used to read literature, generate hypotheses, write and
+            execute code, design molecules and experiments, interact with
+            simulators, and assist in scientific reasoning. As AI systems
+            become increasingly embedded in scientific workflows, the key
+            question is no longer only <strong>what can they do</strong>, but
+            <strong>how should we build and use them reliably for scientific
+            discovery</strong>.
+          </p>
+          <p>
+            The AI Scientist Summer Workshop brings together researchers
+            across AI and science to discuss central challenges including
+            reliability, verification, evaluation, reproducibility, human–AI
+            collaboration, and the design of closed-loop discovery systems.
+            We aim to examine both the opportunities and limitations of
+            current models, and to ask what scientific problems are best
+            suited for AI agents and foundation models.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SCHEDULE ========== -->
+    <section id="schedule">
+      <div class="container">
+        <div class="sec-head">
+          <div><span class="mono">Schedule</span></div>
+        </div>
+
+        <div class="schedule">
+          <div class="sched-row break">
+            <div class="sched-time">08:00 – 09:00</div>
+            <div class="sched-title"><span class="tag meal">Meal</span>Registration &amp; breakfast</div>
+            <div class="sched-meta">Microsoft New England lobby</div>
+          </div>
+          <div class="sched-row">
+            <div class="sched-time">09:00 – 09:15</div>
+            <div class="sched-title"><span class="tag session">Open</span>Opening remarks</div>
+            <div class="sched-meta">Organizing committee</div>
+          </div>
+          <div class="sched-row">
+            <div class="sched-time">09:15 – 09:45</div>
+            <div class="sched-title"><span class="tag invited">Talk</span>Invited talk 1</div>
+            <div class="sched-meta">TBA</div>
+          </div>
+          <div class="sched-row">
+            <div class="sched-time">09:45 – 10:15</div>
+            <div class="sched-title"><span class="tag invited">Talk</span>Invited talk 2</div>
+            <div class="sched-meta">TBA</div>
+          </div>
+          <div class="sched-row">
+            <div class="sched-time">10:15 – 10:30</div>
+            <div class="sched-title"><span class="tag spotlight">Spot</span>Spotlight 1</div>
+            <div class="sched-meta">Contributed talk</div>
+          </div>
+          <div class="sched-row break">
+            <div class="sched-time">10:30 – 11:00</div>
+            <div class="sched-title"><span class="tag break">Break</span>Coffee break</div>
+            <div class="sched-meta"></div>
+          </div>
+          <div class="sched-row">
+            <div class="sched-time">11:00 – 11:30</div>
+            <div class="sched-title"><span class="tag invited">Talk</span>Invited talk 3</div>
+            <div class="sched-meta">TBA</div>
+          </div>
+          <div class="sched-row">
+            <div class="sched-time">11:30 – 11:45</div>
+            <div class="sched-title"><span class="tag spotlight">Spot</span>Spotlight 2</div>
+            <div class="sched-meta">Contributed talk</div>
+          </div>
+          <div class="sched-row">
+            <div class="sched-time">11:45 – 12:15</div>
+            <div class="sched-title"><span class="tag invited">Talk</span>Invited talk 4</div>
+            <div class="sched-meta">TBA</div>
+          </div>
+          <div class="sched-row break">
+            <div class="sched-time">12:15 – 13:30</div>
+            <div class="sched-title"><span class="tag meal">Meal</span>Lunch · catered</div>
+            <div class="sched-meta"></div>
+          </div>
+          <div class="sched-row">
+            <div class="sched-time">13:30 – 14:00</div>
+            <div class="sched-title"><span class="tag invited">Talk</span>Invited talk 5</div>
+            <div class="sched-meta">TBA</div>
+          </div>
+          <div class="sched-row">
+            <div class="sched-time">14:00 – 14:30</div>
+            <div class="sched-title"><span class="tag invited">Talk</span>Invited talk 6</div>
+            <div class="sched-meta">TBA</div>
+          </div>
+          <div class="sched-row">
+            <div class="sched-time">14:30 – 14:45</div>
+            <div class="sched-title"><span class="tag spotlight">Spot</span>Spotlight 3</div>
+            <div class="sched-meta">Contributed talk</div>
+          </div>
+          <div class="sched-row break">
+            <div class="sched-time">14:45 – 15:15</div>
+            <div class="sched-title"><span class="tag break">Break</span>Coffee break</div>
+            <div class="sched-meta"></div>
+          </div>
+          <div class="sched-row">
+            <div class="sched-time">15:15 – 15:30</div>
+            <div class="sched-title"><span class="tag spotlight">Spot</span>Spotlight 4</div>
+            <div class="sched-meta">Contributed talk</div>
+          </div>
+          <div class="sched-row">
+            <div class="sched-time">15:30 – 16:00</div>
+            <div class="sched-title"><span class="tag invited">Talk</span>Invited talk 7</div>
+            <div class="sched-meta">TBA</div>
+          </div>
+          <div class="sched-row">
+            <div class="sched-time">16:00 – 16:30</div>
+            <div class="sched-title"><span class="tag invited">Talk</span>Invited talk 8</div>
+            <div class="sched-meta">TBA</div>
+          </div>
+          <div class="sched-row">
+            <div class="sched-time">16:30 – 16:45</div>
+            <div class="sched-title"><span class="tag session">Close</span>Closing remarks</div>
+            <div class="sched-meta">Organizing committee</div>
+          </div>
+          <div class="sched-row break">
+            <div class="sched-time">16:45 – 18:00</div>
+            <div class="sched-title"><span class="tag social">Social</span>Poster session &amp; social · catered</div>
+            <div class="sched-meta"></div>
+          </div>
+          <div class="sched-row break">
+            <div class="sched-time">18:00 – 20:00</div>
+            <div class="sched-title"><span class="tag social">Social</span>Reception</div>
+            <div class="sched-meta"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SPEAKERS ========== -->
+    <section id="speakers" style="background: var(--bg-alt);">
+      <div class="container">
+        <div class="sec-head" style="border-top-color: var(--line);">
+          <div><span class="mono">Invited Speakers</span></div>
+        </div>
+
+        <div class="people-grid">
+          <div class="person">
+            <div class="person-photo confirmed" data-initials="MZ"></div>
+            <div class="person-name">Marinka Zitnik</div>
+            <div class="person-affil"><span class="role">Confirmed</span>Harvard Medical School</div>
+          </div>
+          <div class="person">
+            <div class="person-photo" data-initials="RG"></div>
+            <div class="person-name">Rafael Gómez-Bombarelli</div>
+            <div class="person-affil"><span class="role">Invited</span>MIT · Lila Sciences</div>
+          </div>
+          <div class="person">
+            <div class="person-photo" data-initials="MB"></div>
+            <div class="person-name">Michael Brenner</div>
+            <div class="person-affil"><span class="role">Invited</span>Harvard · Google Research</div>
+          </div>
+          <div class="person">
+            <div class="person-photo" data-initials="YD"></div>
+            <div class="person-name">Yuanqi Du</div>
+            <div class="person-affil"><span class="role">Invited</span>Microsoft Research</div>
+          </div>
+          <div class="person">
+            <div class="person-photo" data-initials="AW"></div>
+            <div class="person-name">Andrew White</div>
+            <div class="person-affil"><span class="role">Invited</span>Edison Scientific</div>
+          </div>
+          <div class="person">
+            <div class="person-photo" data-initials="NF"></div>
+            <div class="person-name">Nathan Frey</div>
+            <div class="person-affil"><span class="role">Invited</span>Anthropic</div>
+          </div>
+          <div class="person">
+            <div class="person-photo" data-initials="EL"></div>
+            <div class="person-name">Eric Lander</div>
+            <div class="person-affil"><span class="role">Invited</span>Broad Institute</div>
+          </div>
+          <div class="person">
+            <div class="person-photo" data-initials="?"></div>
+            <div class="person-name">To be announced</div>
+            <div class="person-affil"><span class="role">8th speaker</span>—</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CFP ========== -->
+    <section id="cfp">
+      <div class="container">
+        <div class="sec-head">
+          <div><span class="mono">Call for Papers</span></div>
+        </div>
+
+        <div class="cfp">
+          <div>
+            <span class="mono">— Call for Contributions</span>
+            <h3 style="margin-top: 0.4rem;">Spotlights &amp; posters from the community.</h3>
+            <p>
+              We invite extended abstracts (up to 4 pages, single column) on
+              topics including foundation models for science, AI agents for
+              hypothesis generation and experimental design, evaluation of
+              scientific reasoning, closed-loop autonomous experimentation,
+              and human–AI scientific collaboration.
+            </p>
+            <p>
+              Four submissions will be selected as <strong style="color: var(--bg);">spotlight talks</strong> (15 min) during the workshop;
+              additional accepted submissions will be presented during the
+              afternoon <strong style="color: var(--bg);">poster session</strong>.
+            </p>
+          </div>
+          <div>
+            <div class="cfp-dates">
+              <div class="item">
+                <span class="mono">Submissions open</span>
+                <span class="val">April 2026</span>
+              </div>
+              <div class="item">
+                <span class="mono">Submission deadline</span>
+                <span class="val">June 15, 2026</span>
+              </div>
+              <div class="item">
+                <span class="mono">Notification</span>
+                <span class="val">July 10, 2026</span>
+              </div>
+              <div class="item">
+                <span class="mono">Workshop date</span>
+                <span class="val">August 4, 2026</span>
+              </div>
+              <div class="item">
+                <span class="mono">Format</span>
+                <span class="val">4-page extended abstract</span>
+              </div>
+              <div class="item">
+                <span class="mono">Submission portal</span>
+                <span class="val">OpenReview (TBA)</span>
+              </div>
+            </div>
+            <a class="cfp-cta" href="#" id="register">Submit a contribution →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ORGANIZERS ========== -->
+    <section id="organizers">
+      <div class="container">
+        <div class="sec-head">
+          <div><span class="mono">Organizers</span></div>
+        </div>
+
+        <div class="people-grid">
+          <div class="person">
+            <div class="person-photo" data-initials="AF"></div>
+            <div class="person-name">Ada Fang</div>
+            <div class="person-affil"><span class="role">Organizer</span>Harvard University</div>
+          </div>
+          <div class="person">
+            <div class="person-photo" data-initials="WJ"></div>
+            <div class="person-name">Wengong Jin</div>
+            <div class="person-affil"><span class="role">Organizer</span>Northeastern University</div>
+          </div>
+          <div class="person">
+            <div class="person-photo" data-initials="YD"></div>
+            <div class="person-name">Yuanqi Du</div>
+            <div class="person-affil"><span class="role">Organizer</span>Microsoft Research</div>
+          </div>
+        </div>
+
+        <div class="subgroup">
+          <span class="mono">Student helpers</span>
+        </div>
+
+        <div class="people-grid">
+          <div class="person">
+            <div class="person-photo" data-initials="YZ"></div>
+            <div class="person-name">Yikun Zhang</div>
+            <div class="person-affil"><span class="role">Student</span>Northeastern University</div>
+          </div>
+          <div class="person">
+            <div class="person-photo" data-initials="XC"></div>
+            <div class="person-name">Xiwei Cheng</div>
+            <div class="person-affil"><span class="role">Student</span>Northeastern University</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== VENUE ========== -->
+    <section id="venue">
+      <div class="container">
+        <div class="sec-head">
+          <div><span class="mono">Venue</span></div>
+        </div>
+
+        <div class="venue-grid">
+          <div class="venue-card">
+            <span class="mono">Host institution</span>
+            <h3>Microsoft New England</h3>
+            <address>
+              1 Memorial Drive<br/>
+              Cambridge, MA 02142
+            </address>
+            <div class="venue-detail">
+              <span class="k">Room</span>
+              <span class="v">Horace Mann</span>
+            </div>
+            <div class="venue-detail">
+              <span class="k">Nearest T</span>
+              <span class="v">Kendall / MIT — Red Line</span>
+            </div>
+            <div class="venue-detail">
+              <span class="k">Parking</span>
+              <span class="v">Garages on Memorial Dr</span>
+            </div>
+            <div class="venue-detail">
+              <span class="k">Accessibility</span>
+              <span class="v">Step-free access</span>
+            </div>
+            <div class="venue-detail">
+              <span class="k">Capacity</span>
+              <span class="v">100 attendees</span>
+            </div>
+          </div>
+          <div class="venue-map">
+            <iframe
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-71.0876%2C42.3608%2C-71.0782%2C42.3672&layer=mapnik&marker=42.364%2C-71.0828"
+              loading="lazy"
+              title="Map of Microsoft New England, 1 Memorial Drive, Cambridge MA">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SPONSORS ========== -->
+    <section id="sponsors" class="tight">
+      <div class="container">
+        <div class="sec-head">
+          <div><span class="mono">With support from</span></div>
+        </div>
+        <div class="sponsors-row">
+          <div class="sponsor">
+            <span class="label">Host</span>
+            <span class="name">Microsoft Research New England</span>
+          </div>
+          <div class="sponsor">
+            <span class="label">Sponsor</span>
+            <span class="name">[ Sponsor name ]</span>
+          </div>
+          <div class="sponsor">
+            <span class="label">Sponsor</span>
+            <span class="name">[ Sponsor name ]</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        AI Scientist Summer Workshop<span class="meta">· Aug 4, 2026 · Cambridge, MA</span>
+      </div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#speakers">Speakers</a>
+        <a href="#cfp">CFP</a>
+        <a href="#venue">Venue</a>
+        <a href="mailto:ai-scientist-workshop@example.org">Contact</a>
+      </div>
+      <div class="footer-copy">© 2026</div>
+    </div>
+  </footer>
+
+</body>
+</html>
