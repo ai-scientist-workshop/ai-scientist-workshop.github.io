@@ -28,7 +28,7 @@
       --ms-blue:   #00a4ef;
       --ms-yellow: #ffb900;
       --ms-teal:   #038387;
-      --ms-navy:   #243a5a;
+      --ms-navy:   #3a5b85;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -149,8 +149,8 @@
       margin: 0 auto;
       padding: 0 1.75rem;
     }
-    section { padding: clamp(2rem, 4vw, 3rem) 0; }
-    section.tight { padding: clamp(1.25rem, 2vw, 2rem) 0; }
+    section { padding: clamp(1rem, 2vw, 1.5rem) 0; }
+    section.tight { padding: clamp(0.75rem, 1.5vw, 1.25rem) 0; }
 
     /* ---------- hero ---------- */
     .hero {
@@ -178,7 +178,7 @@
       margin-bottom: 1.25rem;
     }
     .hero-sub {
-      max-width: 58ch;
+      max-width: 80ch;
       font-size: 1.02rem;
       color: var(--ink-soft);
       line-height: 1.55;
@@ -210,8 +210,8 @@
     /* ---------- section heads ---------- */
     .sec-head {
       display: block;
-      margin-bottom: 1.5rem;
-      padding-top: 1.75rem;
+      margin-bottom: 1.25rem;
+      padding-top: 1.25rem;
       border-top: 1px solid var(--line);
     }
     .sec-head .mono {
@@ -481,7 +481,6 @@
       height: 100%;
       min-height: 280px;
       border: 0;
-      filter: saturate(0.9);
     }
 
     /* ---------- sponsors ---------- */
@@ -911,17 +910,17 @@
           <div class="person">
             <div class="person-photo" data-initials="AF"></div>
             <div class="person-name">Ada Fang</div>
-            <div class="person-affil"><span class="role">Organizer</span>Harvard University</div>
+            <div class="person-affil">Harvard University</div>
           </div>
           <div class="person">
             <div class="person-photo" data-initials="WJ"></div>
             <div class="person-name">Wengong Jin</div>
-            <div class="person-affil"><span class="role">Organizer</span>Northeastern University</div>
+            <div class="person-affil">Northeastern University</div>
           </div>
           <div class="person">
             <div class="person-photo" data-initials="YD"></div>
             <div class="person-name">Yuanqi Du</div>
-            <div class="person-affil"><span class="role">Organizer</span>Microsoft Research</div>
+            <div class="person-affil">Microsoft Research</div>
           </div>
         </div>
 
@@ -933,12 +932,12 @@
           <div class="person">
             <div class="person-photo" data-initials="YZ"></div>
             <div class="person-name">Yikun Zhang</div>
-            <div class="person-affil"><span class="role">Student</span>Northeastern University</div>
+            <div class="person-affil">Northeastern University</div>
           </div>
           <div class="person">
             <div class="person-photo" data-initials="XC"></div>
             <div class="person-name">Xiwei Cheng</div>
-            <div class="person-affil"><span class="role">Student</span>Northeastern University</div>
+            <div class="person-affil">Northeastern University</div>
           </div>
         </div>
       </div>
@@ -982,8 +981,9 @@
           </div>
           <div class="venue-map">
             <iframe
-              src="https://www.openstreetmap.org/export/embed.html?bbox=-71.0876%2C42.3608%2C-71.0782%2C42.3672&layer=mapnik&marker=42.364%2C-71.0828"
+              src="https://maps.google.com/maps?q=Microsoft+New+England+1+Memorial+Drive+Cambridge+MA+02142&hl=en&z=15&output=embed"
               loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
               title="Map of Microsoft New England, 1 Memorial Drive, Cambridge MA">
             </iframe>
           </div>
