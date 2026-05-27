@@ -178,7 +178,7 @@
       margin-bottom: 1.25rem;
     }
     .hero-sub {
-      max-width: 80ch;
+      max-width: 720px;
       font-size: 1.02rem;
       color: var(--ink-soft);
       line-height: 1.55;
@@ -233,7 +233,7 @@
     .abstract-body {
       font-size: 1.08rem;
       line-height: 1.65;
-      max-width: 78ch;
+      max-width: 720px;
       color: var(--ink-soft);
     }
     .abstract-body p { margin-bottom: 1em; }
@@ -298,19 +298,32 @@
     /* ---------- people grids ---------- */
     .people-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 1.5rem 1.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 2rem 1.5rem;
     }
-    .person { display: flex; flex-direction: column; gap: 0.25rem; }
+    .person {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.2rem;
+    }
     .person-photo {
-      width: 100%;
-      aspect-ratio: 1 / 1;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
       background: var(--bg-deep);
-      border-radius: 3px;
-      margin-bottom: 0.55rem;
+      border: 1px solid var(--line);
+      margin-bottom: 0.75rem;
       position: relative;
       overflow: hidden;
-      border: 1px solid var(--line);
+      flex-shrink: 0;
+    }
+    .person-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
     .person-photo::after {
       content: attr(data-initials);
@@ -326,36 +339,23 @@
       letter-spacing: 0.05em;
     }
     .person-photo.confirmed::before {
-      content: "Confirmed";
-      position: absolute;
-      top: 0.4rem;
-      right: 0.4rem;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.6rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--bg);
-      background: var(--rust);
-      padding: 0.15rem 0.4rem;
-      border-radius: 3px;
-      z-index: 2;
+      display: none;
     }
     .person-name {
-      font-size: 0.92rem;
+      font-size: 0.95rem;
       font-weight: 600;
       color: var(--ink);
       letter-spacing: -0.005em;
     }
     .person-affil {
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: var(--ink-mute);
       line-height: 1.4;
     }
     .person-affil .role {
       display: block;
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.65rem;
+      font-size: 0.62rem;
       letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--rust);
