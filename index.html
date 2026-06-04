@@ -251,17 +251,23 @@
     .btn-primary:hover { background: var(--rust-deep); color: #fff; }
 
     /* Sponsor */
-    .sponsors-grid { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .sponsors-grid {
+      display: flex; flex-wrap: wrap; gap: 1.5rem;
+      align-items: center;
+    }
     .sponsor-card {
-      width: 240px; display: flex; flex-direction: column;
+      display: flex; flex-direction: column;
       gap: 0.6rem; align-items: center; text-align: center;
     }
     .sponsor-logo {
-      width: 100%; height: 100px;
-      background: var(--bg-alt); border: 1px dashed var(--line);
+      display: inline-block;
+      padding: 1rem 1.5rem;
+      background: var(--bg-alt);
+      border: 1px solid var(--line);
       border-radius: 4px;
-      display: flex; align-items: center; justify-content: center;
-      padding: 0 1.25rem; position: relative;
+      position: relative;
+      min-width: 200px;
+      min-height: 80px;
     }
     .sponsor-logo .logo-placeholder {
       font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
@@ -272,7 +278,10 @@
       display: flex; align-items: center; justify-content: center; z-index: 0;
     }
     .sponsor-logo img {
-      max-width: 100%; max-height: 100%; object-fit: contain;
+      max-height: 60px;
+      max-width: 280px;
+      width: auto; height: auto;
+      display: block;
       position: relative; z-index: 1;
     }
 
