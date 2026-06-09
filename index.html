@@ -146,8 +146,9 @@
       display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem 1.5rem;
     }
     .people-grid.three-col { grid-template-columns: repeat(3, 1fr); max-width: 720px; margin: 0 auto; }
+    .people-grid.five-col { grid-template-columns: repeat(5, 1fr); }
     @media (max-width: 900px) {
-      .people-grid, .people-grid.three-col { grid-template-columns: repeat(2, 1fr); }
+      .people-grid, .people-grid.three-col, .people-grid.five-col { grid-template-columns: repeat(2, 1fr); }
     }
     .person {
       display: flex; flex-direction: column; align-items: center;
@@ -377,6 +378,15 @@
             </a>
             <div class="person-name"><a href="https://pliang279.github.io/" target="_blank" rel="noopener">Paul Liang</a></div>
             <div class="person-affil">MIT</div>
+          </div>
+        </div>
+        <div class="people-grid five-col" style="margin-top: 2rem;">
+          <div class="person">
+            <a class="person-link" href="https://gomezbombarelli.mit.edu/" target="_blank" rel="noopener">
+              <div class="person-photo" data-initials="RG"><img src="https://dmse.mit.edu/wp-content/uploads/2026/02/MIT-Rafael-Gomez-Bombarelli-01-press_0-aspect-ratio-400-400-400x400-c-default.jpg" alt="Rafael Gómez-Bombarelli" onerror="this.style.display='none'"></div>
+            </a>
+            <div class="person-name"><a href="https://gomezbombarelli.mit.edu/" target="_blank" rel="noopener">Rafael Gómez-Bombarelli</a></div>
+            <div class="person-affil">MIT, Lila Sciences</div>
           </div>
           <div class="person">
             <a class="person-link" href="https://research.google/people/106654/" target="_blank" rel="noopener">
