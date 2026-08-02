@@ -141,6 +141,32 @@
     }
     @media (max-width: 768px) { .themes-grid { grid-template-columns: 1fr; } }
 
+    /* Posters */
+    .poster-group { margin-bottom: 2.25rem; }
+    .poster-group:last-child { margin-bottom: 0; }
+    .poster-group-head {
+      display: flex; align-items: center; gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .poster-count { font-size: 0.85rem; color: var(--ink-mute); }
+    .poster-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;
+    }
+    @media (max-width: 768px) { .poster-grid { grid-template-columns: 1fr; } }
+    .poster-card {
+      background: var(--bg-alt);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 1rem 1.15rem;
+    }
+    .poster-title {
+      font-size: 0.98rem; font-weight: 600; line-height: 1.4;
+      color: var(--ink); letter-spacing: -0.005em;
+    }
+    .poster-author {
+      font-size: 0.88rem; color: var(--ink-soft); margin-top: 0.35rem;
+    }
+
     /* People grid */
     .people-grid {
       display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem 1.5rem;
@@ -320,6 +346,7 @@
     <a href="#about" class="btn-ghost">About</a>
     <a href="#speakers" class="btn-ghost">Speakers</a>
     <a href="#schedule" class="btn-ghost">Schedule</a>
+    <a href="#posters" class="btn-ghost">Posters</a>
     <a href="#social" class="btn-ghost">Social</a>
     <a href="#organizers" class="btn-ghost">Organizers</a>
     <a href="#sponsor" class="btn-ghost">Sponsor</a>
@@ -442,7 +469,77 @@
           <div class="sched-row"><div class="sched-time">16:20 – 16:30</div><div class="sched-title"><span class="tag spotlight">Contributed Talk</span>Harit Vishwakarma, Klara Kaleb<span class="sched-talk">Paperena: An Environment for Continual Evaluation and Improvement of AI Scientists</span></div></div>
           <div class="sched-row"><div class="sched-time">16:30 – 16:40</div><div class="sched-title"><span class="tag session">Close</span>Closing remarks</div></div>
           <div class="sched-row break"><div class="sched-time">16:40 – 18:00</div><div class="sched-title"><span class="tag social">Social</span>Poster session &amp; social</div></div>
-          <div class="sched-row break"><div class="sched-time">Evening</div><div class="sched-title"><span class="tag social">Social</span><a href="https://luma.com/rnz6ngz8" target="_blank" rel="noopener">Post-workshop social · AI-Bio Meetup in Boston</a><span class="sched-affil">CambridgeSide, Cambridge · RSVP on Luma</span></div></div>
+          <div class="sched-row break"><div class="sched-time">18:30 – 21:30</div><div class="sched-title"><span class="tag social">Social</span><a href="https://luma.com/rnz6ngz8" target="_blank" rel="noopener">Post-workshop social · AI-Bio Meetup in Boston</a><span class="sched-affil">CambridgeSide, Cambridge · RSVP on Luma</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== POSTERS ========== -->
+    <section id="posters">
+      <div class="container">
+        <div class="sec-head"><div><span class="mono">Posters</span></div></div>
+        <div class="poster-group">
+          <div class="poster-group-head"><span class="tag session">Morning Session</span><span class="poster-count">26 posters</span></div>
+          <div class="poster-grid">
+            <div class="poster-card"><div class="poster-title">Adaptive Exploration–Exploitation Control for Agentic De Novo Drug Design</div><div class="poster-author">Jinyeop Song</div></div>
+            <div class="poster-card"><div class="poster-title">Agentification of multi-omics pipeline and analytics for drug discovery applications</div><div class="poster-author">Giorgio Gaglia</div></div>
+            <div class="poster-card"><div class="poster-title">AI CFD Scientist: Toward Open-Ended Computational Fluid Dynamics Discovery with Physics-Aware AI Agents</div><div class="poster-author">Shaowu Pan</div></div>
+            <div class="poster-card"><div class="poster-title">AI-research assistant for experimental quantum science</div><div class="poster-author">Evgeny Redekop</div></div>
+            <div class="poster-card"><div class="poster-title">AutoScientists: Self-Organizing Agent Teams for Long-Running Scientific Experimentation</div><div class="poster-author">Ada Fang</div></div>
+            <div class="poster-card"><div class="poster-title">Calibratable Generative Agents: Bayesian Inference for Behavioral Epidemics</div><div class="poster-author">Khondoker Nabi</div></div>
+            <div class="poster-card"><div class="poster-title">Chorus: An Agentic Framework for Comparative Regulatory Genomics with Sequence-to-Function Oracles</div><div class="poster-author">Luca Pinello</div></div>
+            <div class="poster-card"><div class="poster-title">Document-as-Image Representations Fall Short for Scientific Retrieval</div><div class="poster-author">Ghazal Khalighinejad</div></div>
+            <div class="poster-card"><div class="poster-title">Evidence Before Hypothesis: Human-AI Collaboration in Single-Cell RNA-seq Discovery</div><div class="poster-author">Ishan Khurjekar</div></div>
+            <div class="poster-card"><div class="poster-title">FEM-Bench: A Structured Scientific Reasoning Benchmark for Evaluating Code-Generating LLMs</div><div class="poster-author">Erfan Hamdi</div></div>
+            <div class="poster-card"><div class="poster-title">jx: an agent-composable marimo notebook catalog for scientific data exploration</div><div class="poster-author">Shantanu Singh</div></div>
+            <div class="poster-card"><div class="poster-title">Leading multi-agent teams for scientific discovery</div><div class="poster-author">Ilknur Icke</div></div>
+            <div class="poster-card"><div class="poster-title">LLM Agents for Hypothesis Generation and Experimental Design in Heterogeneous Catalysis</div><div class="poster-author">Anna Kelmanson</div></div>
+            <div class="poster-card"><div class="poster-title">Medea: An AI agent for therapeutic reasoning across biological contexts</div><div class="poster-author">Michelle M. Li</div></div>
+            <div class="poster-card"><div class="poster-title">Multi-agent reasoning for exploring the protein universe</div><div class="poster-author">Blake Lash</div></div>
+            <div class="poster-card"><div class="poster-title">Multimodal AI and Participatory Governance for Older Adult Pedestrian Safety Decisions</div><div class="poster-author">Alex Quistberg</div></div>
+            <div class="poster-card"><div class="poster-title">Observe or Perturb? The Data Mix That Reaches General Pathway Identifiability with the Fewest Total Samples (A Toy Model)</div><div class="poster-author">Elizabeth Hudson</div></div>
+            <div class="poster-card"><div class="poster-title">Optimizing Behavioral Experiment Design using AI Simulation</div><div class="poster-author">Sanchaita Hazra</div></div>
+            <div class="poster-card"><div class="poster-title">SAGE: Scalable Agentic Grounded Evaluation for Crop Disease Diagnosis</div><div class="poster-author">Tirtho Roy</div></div>
+            <div class="poster-card"><div class="poster-title">Scaling real-world environments for data-driven discovery</div><div class="poster-author">Hanane Nour Moussa</div></div>
+            <div class="poster-card"><div class="poster-title">SIA: Self Improving Agent with Harness and Weight Update for Scientific Research</div><div class="poster-author">Vignesh Baskaran</div></div>
+            <div class="poster-card"><div class="poster-title">Terminal-Bench Science: Evaluating AI Agents on Real Computational Workflows across the Natural Sciences</div><div class="poster-author">Steven Dillmann</div></div>
+            <div class="poster-card"><div class="poster-title">Therapy Agent: A G2P Platform-Traversing Agent for Target Identification</div><div class="poster-author">Amit Shenoy</div></div>
+            <div class="poster-card"><div class="poster-title">Toward an AI Scientist for Functional Genomics: Coupling STRAND with Agentic In-Silico Perturbation Screening</div><div class="poster-author">Boyang Fu</div></div>
+            <div class="poster-card"><div class="poster-title">Verification and Validation of Open Source AI-enabled Biomedical Tooling at Scale</div><div class="poster-author">Nicholas Alico</div></div>
+            <div class="poster-card"><div class="poster-title">Where Agents Accelerate Small Molecular Discovery in Practice</div><div class="poster-author">Nate Gruver</div></div>
+          </div>
+        </div>
+        <div class="poster-group">
+          <div class="poster-group-head"><span class="tag session">Afternoon Session</span><span class="poster-count">27 posters</span></div>
+          <div class="poster-grid">
+            <div class="poster-card"><div class="poster-title">Accurate Simulation and LLM-Enabled Orchestration for Fault-Tolerant Programmable Cloud Laboratories</div><div class="poster-author">Sina Barazandeh</div></div>
+            <div class="poster-card"><div class="poster-title">Adaptive Knowledge Graphs with Scaling-Law-Based Completeness Assessment for Trustworthy AI in Self-Driving Materials Laboratories</div><div class="poster-author">Jing Luo</div></div>
+            <div class="poster-card"><div class="poster-title">Agentic Calibration of Superconducting Qubit Devices</div><div class="poster-author">Beatriz Yankelevich</div></div>
+            <div class="poster-card"><div class="poster-title">Agentic Discovery of Exchange-Correlation Density Functionals</div><div class="poster-author">Titouan Duston</div></div>
+            <div class="poster-card"><div class="poster-title">AI Co-Pilot for Cancer Research</div><div class="poster-author">Anas Zafar</div></div>
+            <div class="poster-card"><div class="poster-title">AI predictions and the expansion of scientific frontiers: Evidence from structural biology</div><div class="poster-author">Mengyi Sun</div></div>
+            <div class="poster-card"><div class="poster-title">Alembic: mining chemical reactions from literature</div><div class="poster-author">Islam Tayeb</div></div>
+            <div class="poster-card"><div class="poster-title">Auditing Foundation Models for Scientific Decision-Making: Causal Safety Evaluation in Clinical Time Series</div><div class="poster-author">Aditya Kumar Karna</div></div>
+            <div class="poster-card"><div class="poster-title">Can AI Scientists Discover Better Drugs than Human?</div><div class="poster-author">Xiwei Cheng</div></div>
+            <div class="poster-card"><div class="poster-title">Can LLM Agents Do Research on Complex Systems? An Introduction to EpidemIQs</div><div class="poster-author">Mohammad Hossein Samaei</div></div>
+            <div class="poster-card"><div class="poster-title">Collider-Bench: Benchmarking AI Agents with Particle Physics Analysis Reproduction</div><div class="poster-author">Darius A. Faroughy</div></div>
+            <div class="poster-card"><div class="poster-title">Curie: Accelerating Oncology Discovery with AI Assistants</div><div class="poster-author">Tom Galeazzo</div></div>
+            <div class="poster-card"><div class="poster-title">DREAMS OER: A Trustworthy Hierarchical Multi-Agent Framework for Resource-Aware, Hypothesis-Driven Acidic OER Catalyst Discovery</div><div class="poster-author">Ziqi Wang</div></div>
+            <div class="poster-card"><div class="poster-title">FLDWM: World Model for learning approximate SO(3) equivariance for scalable and generalizable molecule generation</div><div class="poster-author">Anirban Ray</div></div>
+            <div class="poster-card"><div class="poster-title">Harnessing AtomisticSkills for Agentic Atomistic Research</div><div class="poster-author">Bowen Deng</div></div>
+            <div class="poster-card"><div class="poster-title">Learned Hypothesis Generation for Automatic Scientific Discovery</div><div class="poster-author">Reece Adamson</div></div>
+            <div class="poster-card"><div class="poster-title">LLM-driven model discovery for earthquake forecasting using a decade of prospective forecasting experiments in California</div><div class="poster-author">Sam Stockman</div></div>
+            <div class="poster-card"><div class="poster-title">Paperena: An Environment for Continual Evaluation and Improvement of AI Scientists</div><div class="poster-author">Harit Vishwakarma</div></div>
+            <div class="poster-card"><div class="poster-title">Planning What to Know：Evidence Coverage Tracking for Tool-augmented Biomedical Agents</div><div class="poster-author">Xinyi Xie</div></div>
+            <div class="poster-card"><div class="poster-title">Protein Design with Agent Rosetta: A Case Study for Specialized Scientific Agents</div><div class="poster-author">Jacopo Teneggi</div></div>
+            <div class="poster-card"><div class="poster-title">Regulatory Sandboxes as Testbeds for Trustworthy AI Scientists in Healthcare</div><div class="poster-author">Gokhan Ertaylan</div></div>
+            <div class="poster-card"><div class="poster-title">RxFM: A Multimodal Foundation Model for ALS Therapeutic Science and Drug Discovery</div><div class="poster-author">Rohan Bhukar</div></div>
+            <div class="poster-card"><div class="poster-title">Spatial Dissection of the Triple Negative Breast Cancer Tumor Microenvironment Using CODEX Multiplex Imaging.</div><div class="poster-author">Nidhi Kadam</div></div>
+            <div class="poster-card"><div class="poster-title">VERITAS: Verifiable Epistemic Reasoning for Image-Derived Hypothesis Testing via Agentic Systems</div><div class="poster-author">Lucas Stoffl</div></div>
+            <div class="poster-card"><div class="poster-title">Voxels to Vectors: Making Medical AI Explainable</div><div class="poster-author">Yashbir Singh</div></div>
+            <div class="poster-card"><div class="poster-title">Why Learned PDE Solvers Explode: Semigroup Transformers for Stable Long-Horizon Dynamics</div><div class="poster-author">Dongzhe Zheng</div></div>
+            <div class="poster-card"><div class="poster-title">ZooBench: Evaluating vision-language models on real citizen-science tasks</div><div class="poster-author">Nolan Koblischke</div></div>
+          </div>
         </div>
       </div>
     </section>
